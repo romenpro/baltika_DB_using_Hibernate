@@ -1,0 +1,242 @@
+package baltika;
+
+import baltika.table.MyTableModel;
+
+import java.sql.*;
+import java.util.*;
+import java.util.Date;
+
+public class OracleConnection {
+    // JDBC driver name and database URL
+//    static final String JDBC_DRIVER = "oracle.jdbc.driver.OracleDriver";
+    private static final String DB_URL = "jdbc:oracle:thin:@127.0.0.1:1521:orcl";
+//    private static final String DB_URL = "jdbc:oracle:thin:@192.168.1.7:1521:orcl";
+//    private static final String DB_URL = "jdbc:oracle:thin:@10.11.206.20:1521:orcl";
+//    private static final String DB_URL = "jdbc:oracle:thin:@SPBWS6458:1521:orcl";
+//    private static final String DB_URL = "jdbc:oracle:thin:@SPBWS6458.baltikacorp.ds.local:1521:orcl";
+//    private static final String DB_URL = "jdbc:oracle:thin:@SPBWS7010:1521:orcl";
+//    private static final String DB_URL = "jdbc:oracle:thin:@SPBWS7010.baltikacorp.ds.local:1521:orcl";
+
+    //  Database credentials
+    private static final String USER = "cnt";
+    private static final String PASS = "cnt";
+    private String dbName = "DATAS";
+    private Connection conn;
+    private int id;
+    private int n_ob;
+    private Date spinnerDate;
+    private double partOfSN;
+    private MyTableModel factTableModel;
+
+    private ArrayList<BaltikaObject> baltikaObjects;
+
+    public void createArrayLists() {
+        Statement stmt = null;
+        PreparedStatement pstmt = null;
+        ResultSet rs = null;
+        baltikaObjects = new ArrayList<BaltikaObject>();
+        try{
+            conn = DriverManager.getConnection(DB_URL,USER,PASS);
+            stmt = conn.createStatement();
+            rs = stmt.executeQuery("SELECT DISTINCT N_OB, TXT " +
+                    "FROM OBEKT " +
+                    "WHERE SYB_RNK IN (SELECT SYB_RNK FROM FID) AND SYB_RNK <> 0 " +
+                    "AND N_OB IN (SELECT N_OB FROM GR_INTEGR) " +
+                    "ORDER BY N_OB");
+            while(rs.next()){
+                int n_ob  = rs.getInt("n_ob");
+                String txt = rs.getString("txt");
+                baltikaObjects.add(new BaltikaObject(n_ob, txt));
+            }
+            rs.close();
+            stmt.close();
+            conn.close();
+        }catch(SQLException se){
+            se.printStackTrace();
+        }catch(Exception e){
+            e.printStackTrace();
+        }finally{
+            try{
+                if(stmt!=null)
+                    stmt.close();
+            }catch(SQLException se2){
+            }
+            try{
+                if(conn!=null)
+                    conn.close();
+            }catch(SQLException se){
+                se.printStackTrace();
+            }
+        }
+    }
+
+    public void createTable() throws SQLException {
+        String createString =
+                "create table " + dbName +
+                        " (ID integer NOT NULL,  " +
+                        "N_OB integer NOT NULL, " +
+                        "DD_MM_YYYY DATE NOT NULL, " +
+                        "HH_MI varchar(5) NOT NULL, " +
+                        "VAL varchar(20) NOT NULL, " +
+                        "PARTOFSN number not NULL, " +
+                        "PRIMARY KEY (ID))";
+        Statement stmt = null;
+        try {
+            conn = DriverManager.getConnection(DB_URL,USER,PASS);
+            stmt = conn.createStatement();
+            stmt.execute(createString);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            if (stmt != null) { stmt.close(); }
+            if (conn != null) { conn.close(); }
+        }
+    }
+
+    public void deleteTable() throws SQLException {
+        String createString =
+                "drop table " + dbName;
+        Statement stmt = null;
+        try {
+            conn = DriverManager.getConnection(DB_URL,USER,PASS);
+            stmt = conn.createStatement();
+            stmt.execute(createString);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            if (stmt != null) { stmt.close(); }
+            if (conn != null) { conn.close(); }
+        }
+    }
+
+    public void insertIntoTable() {
+        String stringJComboBox = UI.getStringJComboBox();
+        for (BaltikaObject arrayList : baltikaObjects) {
+            if (arrayList.toString().equals(stringJComboBox)) {
+                n_ob = arrayList.getN_ob();
+            }
+        }
+        spinnerDate = UI.getSpinnerDate();
+        Calendar calendar = Calendar.getInstance();
+        calendar.setTime(spinnerDate);
+        partOfSN = UI.getPartOfSN();
+        factTableModel = UI.getFactTableModel();
+        java.sql.Date sqlDate = new java.sql.Date(spinnerDate.getTime());
+        PreparedStatement stmt = null;
+        String sql = "INSERT INTO " + dbName +
+                " VALUES (users_seq.nextval, ?, ?, ?, ?, ?)";
+        try {
+            conn = DriverManager.getConnection(DB_URL,USER,PASS);
+            stmt = conn.prepareStatement(sql);
+            for (int j = 1; j < factTableModel.getColumnCount(); j++) {
+                calendar.set(Calendar.DATE, j);
+                spinnerDate = calendar.getTime();
+                sqlDate.setTime(spinnerDate.getTime());
+                for (int i = 0; i < factTableModel.getRowCount(); i++) {
+//                    id++;
+                    stmt.setInt(1, n_ob);
+                    stmt.setDate(2, sqlDate);
+                    stmt.setString(3, (String) factTableModel.getValueAt(i, 0));
+                    stmt.setString(4, (String) factTableModel.getValueAt(i, j));
+                    stmt.setDouble(5, partOfSN);
+                    stmt.execute();
+                }
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            if (stmt != null) {
+                try {
+                    stmt.close();
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
+            }
+            if (conn != null) {
+                try {
+                    conn.close();
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
+            }
+        }
+    }
+
+    public void readFromTable() {
+        String stringJComboBox = UI.getStringJComboBox();
+        for (BaltikaObject arrayList : baltikaObjects) {
+            if (arrayList.toString().equals(stringJComboBox)) {
+                n_ob = arrayList.getN_ob();
+            }
+        }
+        spinnerDate = UI.getSpinnerDate();
+        Calendar calendar = Calendar.getInstance();
+        calendar.setTime(spinnerDate);
+        partOfSN = UI.getPartOfSN();
+        factTableModel = UI.getFactTableModel();
+        java.sql.Date sqlDate = new java.sql.Date(spinnerDate.getTime());
+        PreparedStatement stmt = null;
+        ResultSet rs;
+        String sql = "SELECT ID, VAL, PARTOFSN FROM " + dbName +
+                " WHERE N_OB = ? AND DD_MM_YYYY = ? ORDER BY ID";
+        try {
+            conn = DriverManager.getConnection(DB_URL,USER,PASS);
+            stmt = conn.prepareStatement(sql);
+            for (int j = 1; j < factTableModel.getColumnCount(); j++) {
+                int i = 0;
+                calendar.set(Calendar.DATE, j);
+                spinnerDate = calendar.getTime();
+                sqlDate.setTime(spinnerDate.getTime());
+                stmt.setInt(1, n_ob);
+                stmt.setDate(2, sqlDate);
+                rs = stmt.executeQuery();
+                while (rs.next()) {
+                    int id = rs.getInt("ID");
+                    String val = rs.getString("VAL");
+                    double partOfSN = rs.getDouble("PARTOFSN");
+                    factTableModel.setValueAt(val, i, j);
+                    UI.setPartOfSN(partOfSN);
+                    i++;
+                }
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            if (stmt != null) {
+                try {
+                    stmt.close();
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
+            }
+            if (conn != null) {
+                try {
+                    conn.close();
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
+            }
+        }
+    }
+
+    private void setBaltikaObjects() {
+        baltikaObjects = new ArrayList<BaltikaObject>();
+        baltikaObjects.add(new BaltikaObject(1016101, "Балтика Хабаровск"));
+        baltikaObjects.add(new BaltikaObject(1312101, "Балтика Ростов"));
+        baltikaObjects.add(new BaltikaObject(1413101, "Балтика СПб"));
+        baltikaObjects.add(new BaltikaObject(1883101, "Балтика Самара"));
+        baltikaObjects.add(new BaltikaObject(2042101, "Балтика Тула"));
+        baltikaObjects.add(new BaltikaObject(4162001, "Челябинск 1"));
+        baltikaObjects.add(new BaltikaObject(4230001, "Балтика-Воронеж"));
+        baltikaObjects.add(new BaltikaObject(4383101, "Балтика Ярославль"));
+        baltikaObjects.add(new BaltikaObject(4388101, "Балтика Вена"));
+        baltikaObjects.add(new BaltikaObject(4392101, "Пикра-Балтика"));
+        baltikaObjects.add(new BaltikaObject(9408001, "Балтика Новосибирск"));
+    }
+
+    public ArrayList<BaltikaObject> getBaltikaObjects() {
+//        setBaltikaObjects();
+        return baltikaObjects;
+    }
+
+}
