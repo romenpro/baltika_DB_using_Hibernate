@@ -1,23 +1,20 @@
 package baltika;
 
+import baltika.entity.Datas;
 import baltika.table.MyTableModel;
+import org.hibernate.SessionFactory;
+import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
+import org.hibernate.cfg.Configuration;
 
 import java.sql.*;
 import java.util.*;
 import java.util.Date;
 
 public class OracleConnection {
-    // JDBC driver name and database URL
-//    static final String JDBC_DRIVER = "oracle.jdbc.driver.OracleDriver";
     private static final String DB_URL = "jdbc:oracle:thin:@127.0.0.1:1521:orcl";
-//    private static final String DB_URL = "jdbc:oracle:thin:@192.168.1.7:1521:orcl";
-//    private static final String DB_URL = "jdbc:oracle:thin:@10.11.206.20:1521:orcl";
-//    private static final String DB_URL = "jdbc:oracle:thin:@SPBWS6458:1521:orcl";
-//    private static final String DB_URL = "jdbc:oracle:thin:@SPBWS6458.baltikacorp.ds.local:1521:orcl";
-//    private static final String DB_URL = "jdbc:oracle:thin:@SPBWS7010:1521:orcl";
-//    private static final String DB_URL = "jdbc:oracle:thin:@SPBWS7010.baltikacorp.ds.local:1521:orcl";
-
-    //  Database credentials
+    private SessionFactory factory;
+    private Configuration configuration;
+    private StandardServiceRegistryBuilder builder;
     private static final String USER = "cnt";
     private static final String PASS = "cnt";
     private String dbName = "DATAS";
@@ -29,6 +26,17 @@ public class OracleConnection {
     private MyTableModel factTableModel;
 
     private ArrayList<BaltikaObject> baltikaObjects;
+
+    public OracleConnection() {
+        try {
+            configuration = new Configuration().configure();
+            builder = new StandardServiceRegistryBuilder().applySettings(configuration.getProperties());
+            factory = configuration.buildSessionFactory(builder.build());
+        } catch (Throwable ex) {
+            System.err.println("Failed to create sessionFactory object." + ex);
+            throw new ExceptionInInitializerError(ex);
+        }
+    }
 
     public void createArrayLists() {
         Statement stmt = null;
