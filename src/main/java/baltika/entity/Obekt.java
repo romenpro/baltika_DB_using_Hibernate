@@ -1,10 +1,12 @@
 package baltika.entity;
 
 import javax.persistence.*;
+import java.io.Serializable;
+import java.sql.Date;
 
 @Entity
 @Table(name = "OBEKT")
-public class Obekt {
+public class Obekt implements Serializable{
 
     @Id
     @Column(name = "N_OB")
@@ -16,6 +18,9 @@ public class Obekt {
 
     @Column(name = "TXT")
     private String txt;
+
+    public Obekt() {
+    }
 
     public int getN_ob() {
         return n_ob;

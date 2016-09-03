@@ -2,7 +2,10 @@ package baltika;
 
 import baltika.entity.Datas;
 import baltika.table.MyTableModel;
+import org.hibernate.HibernateException;
+import org.hibernate.Session;
 import org.hibernate.SessionFactory;
+import org.hibernate.Transaction;
 import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
 import org.hibernate.cfg.Configuration;
 
@@ -39,42 +42,26 @@ public class OracleConnection {
     }
 
     public void createArrayLists() {
-        Statement stmt = null;
-        PreparedStatement pstmt = null;
-        ResultSet rs = null;
         baltikaObjects = new ArrayList<BaltikaObject>();
-        try{
-            conn = DriverManager.getConnection(DB_URL,USER,PASS);
-            stmt = conn.createStatement();
-            rs = stmt.executeQuery("SELECT DISTINCT N_OB, TXT " +
-                    "FROM OBEKT " +
-                    "WHERE SYB_RNK IN (SELECT SYB_RNK FROM FID) AND SYB_RNK <> 0 " +
-                    "AND N_OB IN (SELECT N_OB FROM GR_INTEGR) " +
-                    "ORDER BY N_OB");
-            while(rs.next()){
-                int n_ob  = rs.getInt("n_ob");
-                String txt = rs.getString("txt");
+        Session session = factory.openSession();
+        Transaction tx = null;
+        try {
+            tx = session.beginTransaction();
+            List employees = session.createQuery("SELECT DISTINCT n_ob, txt FROM Obekt" +
+                    " WHERE syb_rnk IN (SELECT syb_rnk FROM Fid) AND syb_rnk <> 0" +
+                    " AND n_ob IN (SELECT n_ob FROM Gr_integr) ORDER BY n_ob").list();
+            for (Iterator iterator = employees.iterator(); iterator.hasNext(); ) {
+                Object[] row = (Object[]) iterator.next();
+                int n_ob = new Integer(row[0].toString());
+                String txt = row[1].toString();
                 baltikaObjects.add(new BaltikaObject(n_ob, txt));
             }
-            rs.close();
-            stmt.close();
-            conn.close();
-        }catch(SQLException se){
-            se.printStackTrace();
-        }catch(Exception e){
+            tx.commit();
+        } catch (HibernateException e) {
+            if (tx != null) tx.rollback();
             e.printStackTrace();
-        }finally{
-            try{
-                if(stmt!=null)
-                    stmt.close();
-            }catch(SQLException se2){
-            }
-            try{
-                if(conn!=null)
-                    conn.close();
-            }catch(SQLException se){
-                se.printStackTrace();
-            }
+        } finally {
+            session.close();
         }
     }
 
@@ -90,14 +77,18 @@ public class OracleConnection {
                         "PRIMARY KEY (ID))";
         Statement stmt = null;
         try {
-            conn = DriverManager.getConnection(DB_URL,USER,PASS);
+            conn = DriverManager.getConnection(DB_URL, USER, PASS);
             stmt = conn.createStatement();
             stmt.execute(createString);
         } catch (SQLException e) {
             e.printStackTrace();
         } finally {
-            if (stmt != null) { stmt.close(); }
-            if (conn != null) { conn.close(); }
+            if (stmt != null) {
+                stmt.close();
+            }
+            if (conn != null) {
+                conn.close();
+            }
         }
     }
 
@@ -106,14 +97,18 @@ public class OracleConnection {
                 "drop table " + dbName;
         Statement stmt = null;
         try {
-            conn = DriverManager.getConnection(DB_URL,USER,PASS);
+            conn = DriverManager.getConnection(DB_URL, USER, PASS);
             stmt = conn.createStatement();
             stmt.execute(createString);
         } catch (SQLException e) {
             e.printStackTrace();
         } finally {
-            if (stmt != null) { stmt.close(); }
-            if (conn != null) { conn.close(); }
+            if (stmt != null) {
+                stmt.close();
+            }
+            if (conn != null) {
+                conn.close();
+            }
         }
     }
 
@@ -134,7 +129,7 @@ public class OracleConnection {
         String sql = "INSERT INTO " + dbName +
                 " VALUES (users_seq.nextval, ?, ?, ?, ?, ?)";
         try {
-            conn = DriverManager.getConnection(DB_URL,USER,PASS);
+            conn = DriverManager.getConnection(DB_URL, USER, PASS);
             stmt = conn.prepareStatement(sql);
             for (int j = 1; j < factTableModel.getColumnCount(); j++) {
                 calendar.set(Calendar.DATE, j);
@@ -188,7 +183,7 @@ public class OracleConnection {
         String sql = "SELECT ID, VAL, PARTOFSN FROM " + dbName +
                 " WHERE N_OB = ? AND DD_MM_YYYY = ? ORDER BY ID";
         try {
-            conn = DriverManager.getConnection(DB_URL,USER,PASS);
+            conn = DriverManager.getConnection(DB_URL, USER, PASS);
             stmt = conn.prepareStatement(sql);
             for (int j = 1; j < factTableModel.getColumnCount(); j++) {
                 int i = 0;

@@ -12,5 +12,7 @@
         <property name="show_sql">true</property>
         <mapping class="baltika.entity.Datas"></mapping>
         <mapping class="baltika.entity.Obekt"></mapping>
+        <mapping class="baltika.entity.Fid"></mapping>
+        <mapping class="baltika.entity.Gr_integr"></mapping>
     </session-factory>
 </hibernate-configuration>
