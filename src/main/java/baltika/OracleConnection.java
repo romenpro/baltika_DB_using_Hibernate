@@ -2,10 +2,7 @@ package baltika;
 
 import baltika.entity.Datas;
 import baltika.table.MyTableModel;
-import org.hibernate.HibernateException;
-import org.hibernate.Session;
-import org.hibernate.SessionFactory;
-import org.hibernate.Transaction;
+import org.hibernate.*;
 import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
 import org.hibernate.cfg.Configuration;
 
@@ -125,43 +122,33 @@ public class OracleConnection {
         partOfSN = UI.getPartOfSN();
         factTableModel = UI.getFactTableModel();
         java.sql.Date sqlDate = new java.sql.Date(spinnerDate.getTime());
-        PreparedStatement stmt = null;
-        String sql = "INSERT INTO " + dbName +
-                " VALUES (users_seq.nextval, ?, ?, ?, ?, ?)";
+        Session session = factory.openSession();
+        Transaction tx = null;
         try {
-            conn = DriverManager.getConnection(DB_URL, USER, PASS);
-            stmt = conn.prepareStatement(sql);
+            tx = session.beginTransaction();
             for (int j = 1; j < factTableModel.getColumnCount(); j++) {
                 calendar.set(Calendar.DATE, j);
                 spinnerDate = calendar.getTime();
                 sqlDate.setTime(spinnerDate.getTime());
                 for (int i = 0; i < factTableModel.getRowCount(); i++) {
-//                    id++;
-                    stmt.setInt(1, n_ob);
-                    stmt.setDate(2, sqlDate);
-                    stmt.setString(3, (String) factTableModel.getValueAt(i, 0));
-                    stmt.setString(4, (String) factTableModel.getValueAt(i, j));
-                    stmt.setDouble(5, partOfSN);
-                    stmt.execute();
+                    Datas data = new Datas();
+                    data.setN_ob(n_ob);
+                    data.setSqlDate(sqlDate);
+                    data.setHh_mi((String) factTableModel.getValueAt(i, 0));
+                    data.setVal((String) factTableModel.getValueAt(i, j));
+                    data.setPartOfSN(partOfSN);
+                    session.save(data);
+                    session.flush();
+                    session.clear();
                 }
             }
-        } catch (SQLException e) {
+            tx.commit();
+            DialogFrame.showSuccessMessage("Выполнено");
+        } catch (HibernateException e) {
+            if (tx != null) tx.rollback();
             e.printStackTrace();
         } finally {
-            if (stmt != null) {
-                try {
-                    stmt.close();
-                } catch (SQLException e) {
-                    e.printStackTrace();
-                }
-            }
-            if (conn != null) {
-                try {
-                    conn.close();
-                } catch (SQLException e) {
-                    e.printStackTrace();
-                }
-            }
+            session.close();
         }
     }
 
@@ -178,47 +165,37 @@ public class OracleConnection {
         partOfSN = UI.getPartOfSN();
         factTableModel = UI.getFactTableModel();
         java.sql.Date sqlDate = new java.sql.Date(spinnerDate.getTime());
-        PreparedStatement stmt = null;
-        ResultSet rs;
-        String sql = "SELECT ID, VAL, PARTOFSN FROM " + dbName +
-                " WHERE N_OB = ? AND DD_MM_YYYY = ? ORDER BY ID";
+
+        Session session = factory.openSession();
+        Transaction tx = null;
         try {
-            conn = DriverManager.getConnection(DB_URL, USER, PASS);
-            stmt = conn.prepareStatement(sql);
+            tx = session.beginTransaction();
+            String hql = "FROM Datas WHERE n_ob = :n_ob AND " +
+                    "sqlDate = :dd_mm_yyyy ORDER BY id";
+            Query query = session.createQuery(hql);
             for (int j = 1; j < factTableModel.getColumnCount(); j++) {
                 int i = 0;
                 calendar.set(Calendar.DATE, j);
                 spinnerDate = calendar.getTime();
                 sqlDate.setTime(spinnerDate.getTime());
-                stmt.setInt(1, n_ob);
-                stmt.setDate(2, sqlDate);
-                rs = stmt.executeQuery();
-                while (rs.next()) {
-                    int id = rs.getInt("ID");
-                    String val = rs.getString("VAL");
-                    double partOfSN = rs.getDouble("PARTOFSN");
+                query.setParameter("n_ob", n_ob);
+                query.setParameter("dd_mm_yyyy", sqlDate);
+                List data = query.list();
+                for (Iterator iterator = data.iterator(); iterator.hasNext(); ) {
+                    Datas dat = (Datas) iterator.next();
+                    String val = dat.getVal();
+                    double partOfSN = dat.getPartOfSN();
                     factTableModel.setValueAt(val, i, j);
                     UI.setPartOfSN(partOfSN);
                     i++;
                 }
             }
-        } catch (SQLException e) {
+            tx.commit();
+        } catch (HibernateException e) {
+            if (tx != null) tx.rollback();
             e.printStackTrace();
         } finally {
-            if (stmt != null) {
-                try {
-                    stmt.close();
-                } catch (SQLException e) {
-                    e.printStackTrace();
-                }
-            }
-            if (conn != null) {
-                try {
-                    conn.close();
-                } catch (SQLException e) {
-                    e.printStackTrace();
-                }
-            }
+            session.close();
         }
     }
 

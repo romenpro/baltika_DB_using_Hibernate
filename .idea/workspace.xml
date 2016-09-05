@@ -6,13 +6,12 @@
     </artifacts-to-build>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="874c014a-9aaa-4155-a66f-ed8191facff5" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/baltika/entity/Fid.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/baltika/entity/Gr_integr.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/baltika/entity/Obekt.java" afterPath="$PROJECT_DIR$/src/main/java/baltika/entity/Obekt.java" />
+    <list default="true" id="874c014a-9aaa-4155-a66f-ed8191facff5" name="Default" comment="Добавление сущности FID, Gr_integr и метода чтения филиалов&#10;">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/test/java/DataTest.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__junit_junit_4_8_2.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/baltika/OracleConnection.java" afterPath="$PROJECT_DIR$/src/main/java/baltika/OracleConnection.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/baltika.iml" afterPath="$PROJECT_DIR$/baltika.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/hibernate.cfg.xml" afterPath="$PROJECT_DIR$/src/main/resources/hibernate.cfg.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pom.xml" afterPath="$PROJECT_DIR$/pom.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="baltika.iws" />
@@ -24,6 +23,11 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="ChangesViewManager" flattened_view="true" show_ignored="false" />
+  <component name="Commander">
+    <leftPanel />
+    <rightPanel />
+    <splitter proportion="0.5" />
+  </component>
   <component name="CreatePatchCommitExecutor">
     <option name="PATCH_PATH" value="" />
   </component>
@@ -78,65 +82,47 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="UI.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/baltika/UI.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="72" column="58" selection-start="1977" selection-end="1977" vertical-scroll-proportion="0.0" vertical-offset="1224" max-vertical-offset="6120">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="Datas.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/baltika/entity/Datas.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="7" column="0" selection-start="107" selection-end="107" vertical-scroll-proportion="0.0" vertical-offset="119" max-vertical-offset="1445">
+            <state line="58" column="0" selection-start="943" selection-end="943" vertical-scroll-proportion="0.0" vertical-offset="986" max-vertical-offset="1445">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="OracleConnection.java" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="OracleConnection.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/baltika/OracleConnection.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="56" column="65" selection-start="2273" selection-end="2273" vertical-scroll-proportion="5.2040815" vertical-offset="0" max-vertical-offset="4029">
+            <state line="181" column="0" selection-start="6851" selection-end="6851" vertical-scroll-proportion="0.0" vertical-offset="2854" max-vertical-offset="3689">
               <folding>
-                <marker date="1472885678047" expanded="true" signature="2595:2726" placeholder="create table..missingValue..." />
-                <marker date="1472885678047" expanded="true" signature="2595:2992" placeholder="create table..missingValue..." />
-                <marker date="1472885678047" expanded="true" signature="2595:2751" placeholder="create table..missingValue..." />
-                <marker date="1472885678047" expanded="true" signature="2595:2620" placeholder="create table..missingValue..." />
-                <marker date="1472885678047" expanded="true" signature="2595:2608" placeholder="create table..missingValuemissingValue..." />
-                <marker date="1472885678047" expanded="true" signature="2595:2989" placeholder="create table..missingValue..." />
-                <marker date="1472885678047" expanded="true" signature="3544:3555" placeholder="drop table m..." />
-                <marker date="1472885678047" expanded="true" signature="4658:4742" placeholder="INSERT INTO ..." />
-                <marker date="1472885678047" expanded="true" signature="6739:6845" placeholder="SELECT ID, V..missingValue..." />
+                <marker date="1473023472720" expanded="true" signature="2477:2608" placeholder="create table..missingValue..." />
+                <marker date="1473023472720" expanded="true" signature="2477:2874" placeholder="create table..missingValue..." />
+                <marker date="1473023472720" expanded="true" signature="2477:2633" placeholder="create table..missingValue..." />
+                <marker date="1473023472720" expanded="true" signature="2477:2502" placeholder="create table..missingValue..." />
+                <marker date="1473023472720" expanded="true" signature="2477:2490" placeholder="create table..missingValuemissingValue..." />
+                <marker date="1473023472720" expanded="true" signature="2477:2871" placeholder="create table..missingValue..." />
+                <marker date="1473023472720" expanded="true" signature="3426:3437" placeholder="drop table m..." />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Gr_integr.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/baltika/entity/Gr_integr.java">
+      <file leaf-file-name="DataTest.java" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/test/java/DataTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="7" column="46" selection-start="164" selection-end="164" vertical-scroll-proportion="0.0" vertical-offset="119" max-vertical-offset="663">
-              <folding />
+            <state line="33" column="35" selection-start="1059" selection-end="1059" vertical-scroll-proportion="0.34843206" vertical-offset="361" max-vertical-offset="935">
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Obekt.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/baltika/entity/Obekt.java">
+      <file leaf-file-name="pom.xml" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/pom.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="19" column="23" selection-start="352" selection-end="352" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="680">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Fid.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/baltika/entity/Fid.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="11" column="24" selection-start="217" selection-end="217" vertical-scroll-proportion="0.0" vertical-offset="187" max-vertical-offset="663">
+            <state line="38" column="31" selection-start="1344" selection-end="1344" vertical-scroll-proportion="0.0" vertical-offset="646" max-vertical-offset="1683">
               <folding />
             </state>
           </provider>
@@ -170,7 +156,6 @@
         <option value="$PROJECT_DIR$/src/main/java/baltika/Task.java" />
         <option value="$PROJECT_DIR$/src/main/java/baltika/listeners/CalculateActionListener.java" />
         <option value="$PROJECT_DIR$/src/main/java/baltika/UI.java" />
-        <option value="$PROJECT_DIR$/pom.xml" />
         <option value="$PROJECT_DIR$/src/main/java/baltika/entity/Datas.java" />
         <option value="$PROJECT_DIR$/src/main/resources/hibernate.cfg.xml" />
         <option value="$PROJECT_DIR$/src/main/java/baltika/entity/Fid.java" />
@@ -178,6 +163,9 @@
         <option value="$PROJECT_DIR$/src/main/java/baltika/entity/Obekt.java" />
         <option value="$PROJECT_DIR$/src/main/java/baltika/table/Hib.java" />
         <option value="$PROJECT_DIR$/src/main/java/baltika/OracleConnection.java" />
+        <option value="$PROJECT_DIR$/pom.xml" />
+        <option value="$PROJECT_DIR$/src/test/java/DataTestTest.java" />
+        <option value="$PROJECT_DIR$/src/test/java/DataTest.java" />
       </list>
     </option>
   </component>
@@ -286,8 +274,6 @@
       <sortByType />
     </navigator>
     <panes>
-      <pane id="Scope" />
-      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -319,40 +305,8 @@
               <option name="myItemId" value="src" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
-          </PATH>
-          <PATH>
             <PATH_ELEMENT>
-              <option name="myItemId" value="baltika" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="baltika DB using Hibernate" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="baltika" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="baltika DB using Hibernate" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
+              <option name="myItemId" value="test" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
@@ -371,53 +325,13 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="java" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="baltika" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="baltika" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="baltika DB using Hibernate" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="java" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="baltika" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="table" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
         </subPane>
       </pane>
+      <pane id="Scope" />
+      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -431,7 +345,7 @@
     <property name="recentsLimit" value="5" />
     <property name="dynamic.classpath" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
-    <property name="options.lastSelected" value="preferences.pluginManager" />
+    <property name="options.lastSelected" value="reference.settings.project.maven.runner" />
     <property name="options.splitter.main.proportions" value="0.3" />
     <property name="options.splitter.details.proportions" value="0.2" />
     <property name="options.searchVisible" value="true" />
@@ -439,12 +353,20 @@
     <property name="LayoutCode.rearrangeEntriesJava" value="false" />
     <property name="OverrideImplement.combined" value="true" />
     <property name="OverrideImplement.overriding.sorted" value="false" />
-    <property name="project.structure.last.edited" value="Libraries" />
+    <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="restartRequiresConfirmation" value="true" />
+    <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary" value="JUnit3" />
+    <property name="com.intellij.testIntegration.createTest.CreateTestDialog.includeInheritedMembers" value="false" />
   </component>
   <component name="RecentsManager">
+    <key name="CreateTestDialog.Recents.Supers">
+      <recent name="junit.framework.TestCase" />
+    </key>
+    <key name="CreateTestDialog.RecentsKey">
+      <recent name="" />
+    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\Роман\IdeaProjects\baltika DB using Hibernate\src\main\resources" />
       <recent name="C:\Users\Роман\IdeaProjects\baltika\src\main\java" />
@@ -454,7 +376,7 @@
       <recent name="C:\Users\Роман\IdeaProjects\baltika\src\main\resources" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.UI">
+  <component name="RunManager" selected="JUnit.DataTest.insertData">
     <configuration default="false" name="UI" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
         <pattern>
@@ -483,6 +405,29 @@
       <ConfigurationWrapper RunnerId="Run" />
       <method />
     </configuration>
+    <configuration default="false" name="DataTest.insertData" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <module name="baltika" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="DataTest" />
+      <option name="METHOD_NAME" value="insertData" />
+      <option name="TEST_OBJECT" value="method" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="moduleWithDependencies" />
+      </option>
+      <envs />
+      <patterns />
+      <RunnerSettings RunnerId="Run" />
+      <ConfigurationWrapper RunnerId="Run" />
+      <method />
+    </configuration>
     <configuration default="false" name="baltika [package]" type="MavenRunConfiguration" factoryName="Maven" temporary="true">
       <MavenSettings>
         <option name="myGeneralSettings" />
@@ -505,34 +450,6 @@
           </MavenRunnerParameters>
         </option>
       </MavenSettings>
-      <RunnerSettings RunnerId="Debug">
-        <option name="DEBUG_PORT" value="" />
-        <option name="TRANSPORT" value="0" />
-        <option name="LOCAL" value="true" />
-      </RunnerSettings>
-      <RunnerSettings RunnerId="Run" />
-      <ConfigurationWrapper RunnerId="Debug" />
-      <ConfigurationWrapper RunnerId="Run" />
-      <method />
-    </configuration>
-    <configuration default="false" name="Hib" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
-        <pattern>
-          <option name="PATTERN" value="baltika.table.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="MAIN_CLASS_NAME" value="baltika.table.Hib" />
-      <option name="VM_PARAMETERS" />
-      <option name="PROGRAM_PARAMETERS" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="ENABLE_SWING_INSPECTOR" value="false" />
-      <option name="ENV_VARIABLES" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <module name="baltika" />
-      <envs />
       <RunnerSettings RunnerId="Debug">
         <option name="DEBUG_PORT" value="" />
         <option name="TRANSPORT" value="0" />
@@ -798,13 +715,13 @@
     </configuration>
     <list size="3">
       <item index="0" class="java.lang.String" itemvalue="Application.UI" />
-      <item index="1" class="java.lang.String" itemvalue="Maven.baltika [package]" />
-      <item index="2" class="java.lang.String" itemvalue="Application.Hib" />
+      <item index="1" class="java.lang.String" itemvalue="JUnit.DataTest.insertData" />
+      <item index="2" class="java.lang.String" itemvalue="Maven.baltika [package]" />
     </list>
     <recent_temporary>
       <list size="3">
-        <item index="0" class="java.lang.String" itemvalue="Application.UI" />
-        <item index="1" class="java.lang.String" itemvalue="Application.Hib" />
+        <item index="0" class="java.lang.String" itemvalue="JUnit.DataTest.insertData" />
+        <item index="1" class="java.lang.String" itemvalue="Application.UI" />
         <item index="2" class="java.lang.String" itemvalue="Maven.baltika [package]" />
       </list>
     </recent_temporary>
@@ -901,7 +818,13 @@
       <workItem from="1472839067407" duration="3374000" />
       <workItem from="1472843689726" duration="3334000" />
       <workItem from="1472847787111" duration="2132000" />
-      <workItem from="1472884792735" duration="1147000" />
+      <workItem from="1472884792735" duration="1693000" />
+      <workItem from="1473014451231" duration="9618000" />
+      <workItem from="1473024210265" duration="8000" />
+      <workItem from="1473053808553" duration="74000" />
+      <workItem from="1473054081603" duration="33000" />
+      <workItem from="1473098379698" duration="1503000" />
+      <workItem from="1473100317495" duration="1762000" />
     </task>
     <task id="LOCAL-00001" summary="Размещение проекта на GitHub">
       <created>1472329127324</created>
@@ -915,11 +838,15 @@
       <created>1472415614452</created>
       <updated>1472415614452</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Добавление сущности FID, Gr_integr и метода чтения филиалов&#10;">
+      <created>1472886174044</created>
+      <updated>1472886174044</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="160617000" />
+    <option name="totallyTimeSpent" value="174161000" />
   </component>
   <component name="TodoView" selected-index="0">
     <todo-panel id="selected-file">
@@ -943,25 +870,24 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1040" height="744" extended-state="6" />
-    <editor active="false" />
+    <editor active="true" />
     <layout>
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Persistence" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24949084" sideWeight="0.5008157" order="3" side_tool="true" content_ui="tabs" />
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.6965742" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.6965742" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3299389" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Java Enterprise" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32952693" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Hibernate Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.5106036" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="IDEtalk Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32952693" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="IDEtalk" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32626426" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32789558" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32626426" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3284553" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -973,6 +899,7 @@
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.35399672" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Hibernate Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
@@ -992,7 +919,8 @@
     <MESSAGE value="Размещение проекта на GitHub" />
     <MESSAGE value="Добавление зависимости Hibernate" />
     <MESSAGE value="Корректировка файла сущности DATAS" />
-    <option name="LAST_COMMIT_MESSAGE" value="Корректировка файла сущности DATAS" />
+    <MESSAGE value="Добавление сущности FID, Gr_integr и метода чтения филиалов&#10;" />
+    <option name="LAST_COMMIT_MESSAGE" value="Добавление сущности FID, Gr_integr и метода чтения филиалов&#10;" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -1002,66 +930,9 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/pom.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="10" column="18" selection-start="425" selection-end="425" vertical-scroll-proportion="0.0" vertical-offset="170" max-vertical-offset="1037" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/baltika/excel/Retail.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="130" column="17" selection-start="4214" selection-end="4214" vertical-scroll-proportion="0.0" vertical-offset="2210" max-vertical-offset="2465" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/baltika/UI.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="101" column="13" selection-start="3444" selection-end="3444" vertical-scroll-proportion="0.0" vertical-offset="1717" max-vertical-offset="5083">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/baltika/excel/Calcfacthour.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="29" column="47" selection-start="788" selection-end="788" vertical-scroll-proportion="0.0" vertical-offset="493" max-vertical-offset="1428" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/baltika/excel/ExcelAdapter.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="14" column="13" selection-start="425" selection-end="425" vertical-scroll-proportion="0.0" vertical-offset="238" max-vertical-offset="2074" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/baltika/listeners/CalculateActionListener.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="395" column="0" selection-start="15930" selection-end="15930" vertical-scroll-proportion="0.0" vertical-offset="6715" max-vertical-offset="8330" />
-      </provider>
-    </entry>
-    <entry file="jar://C:/Program Files/Java/jdk1.7.0_80/src.zip!/javax/swing/plaf/basic/BasicButtonListener.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="251" column="0" selection-start="8172" selection-end="8172" vertical-scroll-proportion="0.33236152" vertical-offset="3609" max-vertical-offset="4947" />
-      </provider>
-    </entry>
-    <entry file="jar://C:/Program Files/Java/jdk1.7.0_80/src.zip!/javax/swing/AbstractButton.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="1921" column="16" selection-start="68055" selection-end="68055" vertical-scroll-proportion="0.33275262" vertical-offset="31055" max-vertical-offset="51408" />
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/apache/poi/poi/3.14/poi-3.14.jar!/org/apache/poi/ss/usermodel/Sheet.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="195" column="15" selection-start="4222" selection-end="4222" vertical-scroll-proportion="0.4335155" vertical-offset="3060" max-vertical-offset="4318" />
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/apache/poi/poi/3.14/poi-3.14.jar!/org/apache/poi/ss/usermodel/CellStyle.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="72" column="18" selection-start="1858" selection-end="1858" vertical-scroll-proportion="2.138632" vertical-offset="50" max-vertical-offset="2550" />
-      </provider>
-    </entry>
     <entry file="jar://C:/Program Files/Java/jdk1.7.0_80/src.zip!/java/lang/String.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="2159" column="7" selection-start="85222" selection-end="85222" vertical-scroll-proportion="0.28723404" vertical-offset="36034" max-vertical-offset="52207" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/baltika/DialogFrame.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="5" column="13" selection-start="82" selection-end="82" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="425" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/baltika/excel/Calcfacthour.java">
@@ -1211,11 +1082,6 @@
         <state line="44" column="61" selection-start="1674" selection-end="1674" vertical-scroll-proportion="0.0" vertical-offset="204" max-vertical-offset="4182" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/baltika/table/MyTableModel.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="18" column="11" selection-start="422" selection-end="422" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1649" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/baltika/listeners/CalculateActionListener.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="182" column="47" selection-start="6172" selection-end="6172" vertical-scroll-proportion="0.0" vertical-offset="2703" max-vertical-offset="11152" />
@@ -1240,59 +1106,119 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/baltika/entity/Gr_integr.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="7" column="46" selection-start="164" selection-end="164" vertical-scroll-proportion="0.1737649" vertical-offset="0" max-vertical-offset="587" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/baltika/entity/Obekt.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="19" column="23" selection-start="352" selection-end="352" vertical-scroll-proportion="0.3339012" vertical-offset="93" max-vertical-offset="680" />
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/baltika/entity/Fid.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="11" column="24" selection-start="217" selection-end="217" vertical-scroll-proportion="0.0" vertical-offset="1" max-vertical-offset="663">
+        <state line="11" column="24" selection-start="217" selection-end="217" vertical-scroll-proportion="0.28960818" vertical-offset="0" max-vertical-offset="587" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/baltika/DialogFrame.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="13" column="49" selection-start="357" selection-end="357" vertical-scroll-proportion="0.3475298" vertical-offset="0" max-vertical-offset="587">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/baltika/entity/Gr_integr.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/baltika/table/MyTableModel.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="7" column="46" selection-start="164" selection-end="164" vertical-scroll-proportion="0.0" vertical-offset="17" max-vertical-offset="663">
+        <state line="53" column="0" selection-start="1272" selection-end="1272" vertical-scroll-proportion="0.0" vertical-offset="630" max-vertical-offset="1649" />
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/hibernate/hibernate-core/4.3.7.Final/hibernate-core-4.3.7.Final.jar!/org/hibernate/event/spi/AbstractEvent.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="9" column="11" selection-start="298" selection-end="298" vertical-scroll-proportion="-4.0" vertical-offset="36" max-vertical-offset="289" />
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/hibernate/hibernate-core/4.3.7.Final/hibernate-core-4.3.7.Final.jar!/org/hibernate/event/spi/SaveOrUpdateEvent.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="14" column="11" selection-start="504" selection-end="504" vertical-scroll-proportion="-2.84" vertical-offset="150" max-vertical-offset="816" />
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/hibernate/hibernate-core/4.3.7.Final/hibernate-core-4.3.7.Final.jar!/org/hibernate/internal/SessionFactoryImpl.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="204" column="20" selection-start="13784" selection-end="13784" vertical-scroll-proportion="-2.84" vertical-offset="3380" max-vertical-offset="5032" />
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/hibernate/hibernate-core/4.3.7.Final/hibernate-core-4.3.7.Final.jar!/org/hibernate/internal/AbstractSessionImpl.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="21" column="19" selection-start="1171" selection-end="1171" vertical-scroll-proportion="-2.84" vertical-offset="269" max-vertical-offset="1649" />
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/hibernate/hibernate-core/4.3.7.Final/hibernate-core-4.3.7.Final.jar!/org/hibernate/engine/transaction/internal/jdbc/JdbcTransactionFactory.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="17" column="19" selection-start="849" selection-end="849" vertical-scroll-proportion="-2.92" vertical-offset="199" max-vertical-offset="425" />
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/hibernate/hibernate-core/4.3.7.Final/hibernate-core-4.3.7.Final.jar!/org/hibernate/engine/transaction/internal/TransactionCoordinatorImpl.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="52" column="99" selection-start="3293" selection-end="3293" vertical-scroll-proportion="-2.56" vertical-offset="803" max-vertical-offset="1496" />
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/hibernate/hibernate-core/4.3.7.Final/hibernate-core-4.3.7.Final.jar!/org/hibernate/engine/transaction/synchronization/internal/SynchronizationCallbackCoordinatorTrackingImpl.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="20" column="16" selection-start="958" selection-end="958" vertical-scroll-proportion="-4.0" vertical-offset="223" max-vertical-offset="442" />
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/hibernate/hibernate-core/4.3.7.Final/hibernate-core-4.3.7.Final.jar!/org/hibernate/internal/SessionImpl.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="304" column="33" selection-start="19306" selection-end="19306" vertical-scroll-proportion="-2.56" vertical-offset="5087" max-vertical-offset="10370" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/baltika/entity/Datas.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="58" column="0" selection-start="943" selection-end="943" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1071">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/hibernate/hibernate-core/4.3.7.Final/hibernate-core-4.3.7.Final.jar!/org/hibernate/SessionFactory.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="9" column="36" selection-start="354" selection-end="354" vertical-scroll-proportion="0.24772313" vertical-offset="0" max-vertical-offset="1819" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/hibernate.cfg.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="15" column="50" selection-start="889" selection-end="889" vertical-scroll-proportion="0.44425088" vertical-offset="0" max-vertical-offset="574">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/pom.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="21" column="18" selection-start="734" selection-end="734" vertical-scroll-proportion="0.21157324" vertical-offset="240" max-vertical-offset="1598" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/hibernate.cfg.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="15" column="50" selection-start="889" selection-end="889" vertical-scroll-proportion="0.46112117" vertical-offset="0" max-vertical-offset="553">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/baltika/entity/Datas.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="7" column="0" selection-start="107" selection-end="107" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1020">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/baltika/entity/Obekt.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="19" column="23" selection-start="352" selection-end="352" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="680">
+        <state line="38" column="31" selection-start="1344" selection-end="1344" vertical-scroll-proportion="0.0" vertical-offset="257" max-vertical-offset="1683">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/baltika/OracleConnection.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="56" column="65" selection-start="2273" selection-end="2273" vertical-scroll-proportion="5.2040815" vertical-offset="0" max-vertical-offset="4029">
+        <state line="181" column="0" selection-start="6851" selection-end="6851" vertical-scroll-proportion="0.0" vertical-offset="2854" max-vertical-offset="3689">
           <folding>
-            <marker date="1472885678047" expanded="true" signature="2595:2726" placeholder="create table..missingValue..." />
-            <marker date="1472885678047" expanded="true" signature="2595:2992" placeholder="create table..missingValue..." />
-            <marker date="1472885678047" expanded="true" signature="2595:2751" placeholder="create table..missingValue..." />
-            <marker date="1472885678047" expanded="true" signature="2595:2620" placeholder="create table..missingValue..." />
-            <marker date="1472885678047" expanded="true" signature="2595:2608" placeholder="create table..missingValuemissingValue..." />
-            <marker date="1472885678047" expanded="true" signature="2595:2989" placeholder="create table..missingValue..." />
-            <marker date="1472885678047" expanded="true" signature="3544:3555" placeholder="drop table m..." />
-            <marker date="1472885678047" expanded="true" signature="4658:4742" placeholder="INSERT INTO ..." />
-            <marker date="1472885678047" expanded="true" signature="6739:6845" placeholder="SELECT ID, V..missingValue..." />
+            <marker date="1473023472720" expanded="true" signature="2477:2608" placeholder="create table..missingValue..." />
+            <marker date="1473023472720" expanded="true" signature="2477:2874" placeholder="create table..missingValue..." />
+            <marker date="1473023472720" expanded="true" signature="2477:2633" placeholder="create table..missingValue..." />
+            <marker date="1473023472720" expanded="true" signature="2477:2502" placeholder="create table..missingValue..." />
+            <marker date="1473023472720" expanded="true" signature="2477:2490" placeholder="create table..missingValuemissingValue..." />
+            <marker date="1473023472720" expanded="true" signature="2477:2871" placeholder="create table..missingValue..." />
+            <marker date="1473023472720" expanded="true" signature="3426:3437" placeholder="drop table m..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/DataTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="33" column="35" selection-start="1059" selection-end="1059" vertical-scroll-proportion="0.34843206" vertical-offset="361" max-vertical-offset="935">
+          <folding>
+            <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
